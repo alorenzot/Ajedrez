@@ -1,19 +1,15 @@
 package org.example;
-
-import java.util.LinkedList;
-import java.util.List;
-
 public class DeletedPieceManagerListImp implements IDeletedPieceManager{
 
-    List<Piece> pieceList;
+    MyList<Piece> pieceList;
 
     public DeletedPieceManagerListImp() {
-        this.pieceList = new LinkedList<>();
+        this.pieceList = new MyList<>();
     }
 
     @Override
     public void addPiece(Piece piece) {
-        pieceList.add(piece);
+        pieceList.addHead(piece);
     }
 
     @Override
@@ -23,16 +19,12 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager{
 
     @Override
     public int count(Piece.Type pieceType) {
-//        int pieces=0;
-//        for (Piece piece:pieceList){
-//            if (piece.getType()==(pieceType)){
-//                pieces++;
-//            }
-//        }
-//        return pieces;
-        return  (int) pieceList.stream()
-                .filter(p->p.getType()==pieceType)
-                .count();
-
+        int pieces=0;
+        for (int i = 0; i < pieceList.size(); i++) {
+            if (pieceList.get(i).getType()==(pieceType)){
+                pieces++;
+            }
+        }
+        return pieces;
     }
 }
