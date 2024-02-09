@@ -1,4 +1,4 @@
-package org.example;
+package org.example.DeletedPieces;
 
 public class MyList<T> {
 
@@ -56,12 +56,12 @@ public class MyList<T> {
         return info;
     }
 
-    public T get(int index){
-        if(index<0 || index>=size) throw new IndexOutOfBoundsException("Index fuera de rango: " + index);
+    public T get(int index) {
+        if (index < 0 || index >= size) throw new IndexOutOfBoundsException("Index fuera de rango: " + index);
 
         Node<T> node = head;
-        while (index-- >0)
-            node=node.next;
+        while (index-- > 0)
+            node = node.next;
 
         return node.info;
     }

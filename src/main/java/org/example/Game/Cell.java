@@ -1,6 +1,7 @@
-package org.example;
+package org.example.Game;
 
 import com.diogonunes.jcolor.Attribute;
+import org.example.Pieces.Piece;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 

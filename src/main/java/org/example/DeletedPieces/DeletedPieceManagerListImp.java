@@ -1,5 +1,8 @@
-package org.example;
-public class DeletedPieceManagerListImp implements IDeletedPieceManager{
+package org.example.DeletedPieces;
+
+import org.example.Pieces.Piece;
+
+public class DeletedPieceManagerListImp implements IDeletedPieceManager {
 
     MyList<Piece> pieceList;
 
@@ -14,14 +17,14 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager{
 
     @Override
     public Piece removeLast() {
-        return pieceList.remove(pieceList.size()-1);
+        return pieceList.remove(pieceList.size() - 1);
     }
 
     @Override
     public int count(Piece.Type pieceType) {
-        int pieces=0;
+        int pieces = 0;
         for (int i = 0; i < pieceList.size(); i++) {
-            if (pieceList.get(i).getType()==(pieceType)){
+            if (pieceList.get(i).getType() == (pieceType)) {
                 pieces++;
             }
         }

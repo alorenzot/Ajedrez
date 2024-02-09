@@ -1,4 +1,7 @@
-package org.example;
+package org.example.Pieces;
+
+import org.example.Game.Board;
+import org.example.Game.Coordinate;
 
 import java.util.HashSet;
 import java.util.Set;

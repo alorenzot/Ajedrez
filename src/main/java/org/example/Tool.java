@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.Game.Coordinate;
+
 import java.util.Arrays;
 
 public class Tool {

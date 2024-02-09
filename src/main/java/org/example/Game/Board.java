@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Game;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -36,11 +36,11 @@ public class Board {
     @Override
     public String toString() {
         String aux = "    A  B  C  D  E  F  G  H\n";
-        for (int row = 1 ; row <= 8 ; row++) {
+        for (int row = 1; row <= 8; row++) {
             aux += " " + row + " ";
             for (char col = 'A'; col <= 'H'; col++)
                 aux += getCellAt(new Coordinate(col, row));
-            aux+= " " + row + "\n";
+            aux += " " + row + "\n";
         }
         aux += "    A  B  C  D  E  F  G  H";
         return aux;

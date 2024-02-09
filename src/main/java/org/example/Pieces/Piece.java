@@ -1,6 +1,9 @@
-package org.example;
+package org.example.Pieces;
 
 import com.diogonunes.jcolor.Attribute;
+import org.example.Game.Board;
+import org.example.Game.Cell;
+import org.example.Game.Coordinate;
 
 import java.util.Set;
 
