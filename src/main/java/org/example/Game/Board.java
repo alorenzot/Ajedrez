@@ -35,14 +35,14 @@ public class Board {
 
     @Override
     public String toString() {
-        String aux = "    A  B  C  D  E  F  G  H\n";
+        String aux = "\t\t    A  B  C  D  E  F  G  H\n";
         for (int row = 1; row <= 8; row++) {
-            aux += " " + row + " ";
+            aux += "\t\t " + row + " ";
             for (char col = 'A'; col <= 'H'; col++)
                 aux += getCellAt(new Coordinate(col, row));
             aux += " " + row + "\n";
         }
-        aux += "    A  B  C  D  E  F  G  H";
+        aux += "\t\t    A  B  C  D  E  F  G  H";
         return aux;
     }
 }

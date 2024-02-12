@@ -1,5 +1,6 @@
 package org.example.DeletedPieces;
 
+import org.example.Game.Board;
 import org.example.Pieces.Piece;
 
 public class DeletedPieceManagerListImp implements IDeletedPieceManager {
@@ -8,6 +9,15 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
 
     public DeletedPieceManagerListImp() {
         this.pieceList = new MyList<>();
+    }
+
+
+    public String showDeletedPieces(){
+        //Board
+        String output="\t\t\t\tDELETED PIECES";
+
+
+        return output;
     }
 
     @Override

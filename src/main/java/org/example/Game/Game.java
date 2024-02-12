@@ -5,13 +5,27 @@ import org.example.Pieces.*;
 
 public class Game {
     private Board board;
+    private DeletedPieceManagerListImp deletedPieces;
+    private boolean playerBlack;
+    private boolean gameEnded;
+
+    public DeletedPieceManagerListImp getDeletedPieces() {
+        return deletedPieces;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
 
     public Game() {
         board=new Board();
+        deletedPieces=new DeletedPieceManagerListImp();
+        gameEnded=false;
+        playerBlack=true;
     }
     public void startGame(){
         initBoard();
-        //Inputs
+        Input.askCoord(board);
     }
     private void initBoard(){
 
