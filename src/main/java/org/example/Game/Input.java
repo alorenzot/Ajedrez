@@ -2,6 +2,8 @@ package org.example.Game;
 
 import org.example.Pieces.Piece;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Input {
@@ -23,18 +25,21 @@ public class Input {
         char letter = coord.charAt(0);
         int num = coord.charAt(1) - 48;
         Coordinate c = new Coordinate(letter, num);
-
-        if (board.contains(c)) {
+        Cell cell = board.getCellAt(c);
+        if (board.contains(c) && (!(cell.isEmpty()))) {
             return c;
         } else {
             System.out.println("Invalid coordinate.");
             return askCoord(board);
         }
+
     }
 
     public static void askMovement(Board b, Coordinate c){
         Piece p = b.getCellAt(c).getPiece();
-        b.highLight(p.getNextMovements());
+        List<Coordinate> list = new ArrayList<>();
+        list.addAll(p.getNextMovements());
+        b.highLight(list);
         System.out.println(b);
     }
     public static void borrarPantalla() {
