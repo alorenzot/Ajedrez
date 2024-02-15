@@ -31,6 +31,12 @@ public class Input {
             return askCoord(board);
         }
     }
+
+    public static void askMovement(Board b, Coordinate c){
+        Piece p = b.getCellAt(c).getPiece();
+        b.highLight(p.getNextMovements());
+        System.out.println(b);
+    }
     public static void borrarPantalla() {
         //Este metodo borra la terminal
         System.out.print("\033[H\033[2J");

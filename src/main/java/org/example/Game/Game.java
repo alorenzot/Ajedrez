@@ -26,9 +26,8 @@ public class Game {
 
     public void startGame() {
         initBoard();
-        Input.askCoord(this.board);
-
-
+        Coordinate c = Input.askCoord(this.board);
+        Input.askMovement(this.board,c);
     }
 
     private void initBoard() {
