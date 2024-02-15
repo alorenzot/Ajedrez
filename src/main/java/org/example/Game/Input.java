@@ -6,28 +6,35 @@ import java.util.Scanner;
 
 public class Input {
 
-    public static Coordinate askCoord(Board board){
-        //FIXME No reconoce las coordenadas, probar con matches
+    public static Coordinate askCoord(Board board) {
+        borrarPantalla();
+
         System.out.println("Which piece do you want to move? \n" + "Enter a coordinate: \n");
         System.out.println(board.toString());
+
         Scanner sc = new Scanner(System.in);
-        String coord = sc.nextLine();
-        coord.toUpperCase();
-        char letter=coord.charAt(0);
-        int num = coord.charAt(1);
-        Coordinate c;
+        String coord = sc.next();
 
-        if (!(letter<='H' && letter>='A' && num>=1 && num<=8)){
-            System.out.println("Please, enter a valid coordinate!");
+        if (coord.length() != 2){
+            System.out.println("Invalid coordinate, you must introduce a letter and a number [C-2] ");
             return askCoord(board);
-        } else c = new Coordinate(coord.charAt(0),coord.charAt(1));
+        }
 
-        if (!board.contains(c)){
-            System.out.println("Please, enter a valid coordinate!");
+        char letter = coord.charAt(0);
+        int num = coord.charAt(1) - 48;
+        Coordinate c = new Coordinate(letter, num);
+
+        if (board.contains(c)) {
+            return c;
+        } else {
+            System.out.println("Invalid coordinate.");
             return askCoord(board);
-        } else return c;
-
+        }
     }
-
+    public static void borrarPantalla() {
+        //Este metodo borra la terminal
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
 
 }

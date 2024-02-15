@@ -3,6 +3,7 @@ package org.example.Game;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Board {
 
