@@ -26,6 +26,7 @@ public class Game {
 
     public void startGame() {
         initBoard();
+        System.out.println("Which piece do you want to move? \n");
         Coordinate c = Input.askCoord(this.board);
         Input.askMovement(this.board,c);
     }
@@ -41,7 +42,7 @@ public class Game {
         Piece whiteBishop2 = new Bishop(board, new Coordinate('F', 1), Bishop.Type.WHITE);
         Piece whiteKing = new King(board, new Coordinate('D', 1), King.Type.WHITE);
         Piece whiteQueen = new Queen(board, new Coordinate('E', 1), Queen.Type.WHITE);
-        for (char i = 0; i < 8; i++) {
+        for (char i = 0; i <= 8; i++) {
             Piece pawn = new Pawn(board, new Coordinate(((char) ('A' + i)), 2), Pawn.Type.WHITE);
         }
 
@@ -55,7 +56,7 @@ public class Game {
         Piece blackKing = new King(board, new Coordinate('D', 8), King.Type.BLACK);
         Piece blackQueen = new Queen(board, new Coordinate('E', 8), Queen.Type.BLACK);
         for (char i = 0; i < 8; i++) {
-            Piece pawn = new Pawn(board, new Coordinate(((char) ('A' + i)), 7), Pawn.Type.BLACK);
+            Piece pawn2 = new Pawn(board, new Coordinate(((char) ('A' + i)), 7), Pawn.Type.BLACK);
         }
 
     }

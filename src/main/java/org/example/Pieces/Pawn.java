@@ -37,7 +37,7 @@ public class Pawn extends Piece {
             return getNextMovementsAsWhite();
     }
 
-    private Set<Coordinate> getNextMovementsAsWhite() {
+    private Set<Coordinate> getNextMovementsAsBlack() {
         Set<Coordinate> posicionesCandidatas = new HashSet<>();
         Coordinate c;
         Coordinate position = getCell().getCoordinate();
@@ -71,7 +71,7 @@ public class Pawn extends Piece {
         return posicionesCandidatas;
     }
 
-    private Set<Coordinate> getNextMovementsAsBlack() {
+    private Set<Coordinate> getNextMovementsAsWhite() {
         Set<Coordinate> posicionesCandidatas = new HashSet<>();
         Coordinate c;
         Coordinate position = getCell().getCoordinate();
