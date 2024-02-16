@@ -11,6 +11,4 @@ TODO Use the MVC design pattern.
 
 
 
-Vaina de inputs
-- Pedir coordenada
-- Validar colores
+- Implement castling (Si los nextmovem del rey y las de la torre

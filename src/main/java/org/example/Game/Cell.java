@@ -88,5 +88,6 @@ public class Cell {
         public Attribute getAttribute() {
             return color;
         }
+
     }
 }

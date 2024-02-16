@@ -26,10 +26,10 @@ public class Game {
 
     public void startGame() {
         initBoard();
-        System.out.println("Which piece do you want to move? \n");
-        Coordinate c = Input.askCoord(this.board);
-        //FIXME Al seleccionar una pieca vacía da un mensaje de error, pero al introducir otra no se queja
-
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Which piece do you want to move? \n");
+            Coordinate c = Input.askCoord(this.board);
+        }
 
 
     }

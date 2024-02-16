@@ -39,9 +39,11 @@ public class Input {
 
     public static Coordinate askMovement(Board b, Coordinate c, Set<Coordinate> nextMovements) {
         Piece p = b.getCellAt(c).getPiece();
+        Piece aux = p;
         Set<Coordinate> movements = nextMovements;
 
         if (movements.isEmpty()){
+            System.out.println("You can't move that piece!");
             return askCoord(b);
         }
 
@@ -49,12 +51,14 @@ public class Input {
         System.out.println(b);
 
         Coordinate move = makeMove(movements, b);
-        b.getCellAt(move).setPiece(p);
-        //TODO Cambiar el color de la celda destino
+
         b.getCellAt(p.getCell().getCoordinate()).setPiece(null);
+        aux.setCell(b.getCellAt(move));
+        b.getCellAt(move).setPiece(aux);
         b.removeHighLight(movements);
 
-        System.out.println(p.getType() + " in " + p.getCell().getCoordinate() + " moved to " + move);
+        System.out.println(aux.getType() + " in " + aux.getCell().getCoordinate() + " moved to " + move);
+
         System.out.println(b);
 
         return null;
@@ -70,10 +74,16 @@ public class Input {
             System.out.println("Invalid coordinate, you must introduce a letter and a number [C-2] ");
             return makeMove(movements, board);
         }
+
         char letter = coord.charAt(0);
         int num = coord.charAt(1) - 48;
         Coordinate c = new Coordinate(letter, num);
-        if (!(movements.contains(c))) return makeMove(movements, board);
+
+        //Check if the selected coordinate is in the list
+        if (!(movements.contains(c))) {
+            System.out.println("You can't move there!");
+            return makeMove(movements, board);
+        }
 
         Cell cell = board.getCellAt(c);
         if (board.contains(c) && ((cell.isEmpty()))) {
