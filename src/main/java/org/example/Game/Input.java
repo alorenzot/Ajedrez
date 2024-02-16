@@ -25,33 +25,35 @@ public class Input {
         Coordinate c = new Coordinate(letter, num);
 
         Cell cell = board.getCellAt(c);
+
         if (board.contains(c) && (!(cell.isEmpty()))) {
             System.out.println(cell.getPiece().getType() + " selected.");
-            return c;
+            return askMovement(board,c,cell.getPiece().getNextMovements());
         } else {
             System.out.println("Invalid coordinate.");
             return askCoord(board);
         }
 
+
     }
 
-    public static Coordinate askMovement(Board b, Coordinate c) {
-        Set<Coordinate> movements = new HashSet<>();
+    public static Coordinate askMovement(Board b, Coordinate c, Set<Coordinate> nextMovements) {
         Piece p = b.getCellAt(c).getPiece();
+        Set<Coordinate> movements = nextMovements;
 
-        movements.addAll(p.getNextMovements());
         if (movements.isEmpty()){
             return askCoord(b);
         }
+
         b.highLight(movements);
-
-
         System.out.println(b);
+
         Coordinate move = makeMove(movements, b);
         b.getCellAt(move).setPiece(p);
         //TODO Cambiar el color de la celda destino
         b.getCellAt(p.getCell().getCoordinate()).setPiece(null);
         b.removeHighLight(movements);
+
         System.out.println(p.getType() + " in " + p.getCell().getCoordinate() + " moved to " + move);
         System.out.println(b);
 
