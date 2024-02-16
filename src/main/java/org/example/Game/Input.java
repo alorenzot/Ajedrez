@@ -47,14 +47,12 @@ public class Input {
 
 
         System.out.println(b);
-        //TODO Método para preguntar coordenadas en base a la pieza elegida
         Coordinate move = makeMove(movements, b);
         b.getCellAt(move).setPiece(p);
+        //TODO Cambiar el color de la celda destino
         b.getCellAt(p.getCell().getCoordinate()).setPiece(null);
         b.removeHighLight(movements);
         System.out.println(p.getType() + " in " + p.getCell().getCoordinate() + " moved to " + move);
-        //TODO cambiar el metodo para que devuelva la coordenada elegida
-        //TODO implementar movimiento
         System.out.println(b);
 
         return null;
