@@ -28,7 +28,11 @@ public class Game {
         initBoard();
         System.out.println("Which piece do you want to move? \n");
         Coordinate c = Input.askCoord(this.board);
-        Input.askMovement(this.board,c);
+        Coordinate movement = Input.askMovement(this.board,c);
+        //FIXME Al seleccionar una pieca vacía da un mensaje de error, pero al introducir otra no se queja
+        if (movement==null) movement = Input.askMovement(this.board,c);
+
+
     }
 
     private void initBoard() {

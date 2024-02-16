@@ -32,6 +32,10 @@ public class Board {
         for (Coordinate c : coordinates)
             getCellAt(c).highlight();
     }
+    public void removeHighLight(Collection<Coordinate> coordinates){
+        for (Coordinate c : coordinates)
+            getCellAt(c).removeHighLight();
+    }
 
 
     @Override

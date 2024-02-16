@@ -16,7 +16,7 @@ public class Input {
         Scanner sc = new Scanner(System.in);
         String coord = sc.next();
 
-        if (coord.length() != 2){
+        if (coord.length() != 2) {
             System.out.println("Invalid coordinate, you must introduce a letter and a number [C-2] ");
             return askCoord(board);
         }
@@ -26,7 +26,7 @@ public class Input {
 
         Cell cell = board.getCellAt(c);
         if (board.contains(c) && (!(cell.isEmpty()))) {
-            System.out.println(cell.getPiece().getType()+" selected.");
+            System.out.println(cell.getPiece().getType() + " selected.");
             return c;
         } else {
             System.out.println("Invalid coordinate.");
@@ -35,20 +35,55 @@ public class Input {
 
     }
 
-    public static void askMovement(Board b, Coordinate c) {
+    public static Coordinate askMovement(Board b, Coordinate c) {
         Set<Coordinate> movements = new HashSet<>();
         Piece p = b.getCellAt(c).getPiece();
 
         movements.addAll(p.getNextMovements());
+        if (movements.isEmpty()){
+            return askCoord(b);
+        }
         b.highLight(movements);
 
-        System.out.println("Here are the moves you can do: \n" + movements);
+
         System.out.println(b);
         //TODO Método para preguntar coordenadas en base a la pieza elegida
+        Coordinate move = makeMove(movements, b);
+        b.getCellAt(move).setPiece(p);
+        b.getCellAt(p.getCell().getCoordinate()).setPiece(null);
+        b.removeHighLight(movements);
+        System.out.println(p.getType() + " in " + p.getCell().getCoordinate() + " moved to " + move);
         //TODO cambiar el metodo para que devuelva la coordenada elegida
         //TODO implementar movimiento
+        System.out.println(b);
 
+        return null;
     }
+
+    private static Coordinate makeMove(Set<Coordinate> movements, Board board) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Possible movements: \n" + movements);
+        System.out.println("Type the wished coordinate.");
+        String coord = sc.next();
+
+        if (coord.length() != 2) {
+            System.out.println("Invalid coordinate, you must introduce a letter and a number [C-2] ");
+            return makeMove(movements, board);
+        }
+        char letter = coord.charAt(0);
+        int num = coord.charAt(1) - 48;
+        Coordinate c = new Coordinate(letter, num);
+        if (!(movements.contains(c))) return makeMove(movements, board);
+
+        Cell cell = board.getCellAt(c);
+        if (board.contains(c) && ((cell.isEmpty()))) {
+            return c;
+        } else {
+            System.out.println("Invalid coordinate.");
+            return makeMove(movements, board);
+        }
+    }
+
     public static void borrarPantalla() {
         //Este metodo borra la terminal
         System.out.print("\033[H\033[2J");
