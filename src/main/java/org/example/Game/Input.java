@@ -47,7 +47,6 @@ public class Input {
         //TODO Método para preguntar coordenadas en base a la pieza elegida
         //TODO cambiar el metodo para que devuelva la coordenada elegida
         //TODO implementar movimiento
-        //FIXME Los peones negros no pueden avanzar 2 casillas al inicio
 
     }
     public static void borrarPantalla() {

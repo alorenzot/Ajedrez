@@ -59,7 +59,7 @@ public class Pawn extends Piece {
                 && (board.getCellAt(c).getPiece() != null && board.getCellAt(c).getPiece().getColor() != getColor()))
             posicionesCandidatas.add(c);
         // Si esta en la posicion inicial se le permite avanzar 2 posiciones
-        if (position.getNumber() == 2) {
+        if (position.getNumber() == 7) {
             c = position.up();
             if (board.contains(c) && board.getCellAt(c).getPiece() == null) {
                 c = c.up();
