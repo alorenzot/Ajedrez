@@ -1,7 +1,12 @@
 package org.example.DeletedPieces;
 
 import org.example.Game.Board;
-import org.example.Pieces.Piece;
+import org.example.Game.Coordinate;
+import org.example.Pieces.*;
+
+import javax.swing.*;
+
+import static com.diogonunes.jcolor.Ansi.colorize;
 
 public class DeletedPieceManagerListImp implements IDeletedPieceManager {
 
@@ -12,9 +17,8 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
     }
 
 
-    public String showDeletedPieces(){
-        //Board
-        String output="\t\t\t\tDELETED PIECES";
+    public String showDeletedPieces() {
+        String output = "\t\t\t\tDELETED PIECES\n";
 
 
         return output;

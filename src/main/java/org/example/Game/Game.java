@@ -5,9 +5,16 @@ import org.example.Pieces.*;
 
 public class Game {
     private Board board;
-    private DeletedPieceManagerListImp deletedPieces;
-    private boolean playerBlack;
-    private boolean gameEnded;
+    public static DeletedPieceManagerListImp deletedPieces;
+    private String whitePlayer;
+    private String blackPlayer;
+    private static boolean playerBlack;
+    public static boolean gameEnded;
+
+    public static void endGame(Boolean blackwins) {
+        playerBlack = blackwins;
+        gameEnded = true;
+    }
 
     public DeletedPieceManagerListImp getDeletedPieces() {
         return deletedPieces;
@@ -17,7 +24,9 @@ public class Game {
         return board;
     }
 
-    public Game() {
+    public Game(String whitePlayer, String blackPlayer) {
+        this.whitePlayer = whitePlayer;
+        this.blackPlayer = blackPlayer;
         board = new Board();
         deletedPieces = new DeletedPieceManagerListImp();
         gameEnded = false;
@@ -26,10 +35,22 @@ public class Game {
 
     public void startGame() {
         initBoard();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; !gameEnded; i++) {
+            Boolean whiteTurn;
+            if (i % 2 == 0) {
+                whiteTurn = true;
+                System.out.println(whitePlayer + "'s turn -> WHITE");
+            } else {
+                whiteTurn = false;
+            System.out.println(blackPlayer + "'s turn -> BLACK");
+            }
             System.out.println("Which piece do you want to move? \n");
-            Coordinate c = Input.askCoord(this.board);
+
+            Coordinate c = Input.askCoord(this.board, whiteTurn);
         }
+        if (!playerBlack) {
+            System.out.println("Black player wins!");
+        } else System.out.println("White player wins!");
 
 
     }
@@ -66,6 +87,7 @@ public class Game {
 
     @Override
     public String toString() {
-        return board.toString();
+        return board.toString() + deletedPieces;
     }
+
 }

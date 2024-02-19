@@ -1,5 +1,7 @@
 package org.example.Game;
 
+import org.example.DeletedPieces.DeletedPieceManagerListImp;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,6 +10,7 @@ import java.util.Scanner;
 public class Board {
 
     private Map<Coordinate, Cell> cells;
+    private DeletedPieceManagerListImp deletedPieces;
 
     public Board() {
         cells = new HashMap<>();
@@ -18,6 +21,7 @@ public class Board {
                 cells.put(c, new Cell(this, c));
             }
         }
+        deletedPieces=new DeletedPieceManagerListImp();
     }
 
     public boolean contains(Coordinate c) {
@@ -32,7 +36,8 @@ public class Board {
         for (Coordinate c : coordinates)
             getCellAt(c).highlight();
     }
-    public void removeHighLight(Collection<Coordinate> coordinates){
+
+    public void removeHighLight(Collection<Coordinate> coordinates) {
         for (Coordinate c : coordinates)
             getCellAt(c).removeHighLight();
     }
@@ -47,7 +52,9 @@ public class Board {
                 aux += getCellAt(new Coordinate(col, row));
             aux += " " + row + "\n";
         }
-        aux += "\t\t    A  B  C  D  E  F  G  H";
+        aux += "\t\t    A  B  C  D  E  F  G  H\n";
+        aux+=deletedPieces.showDeletedPieces();
+
         return aux;
     }
 }
