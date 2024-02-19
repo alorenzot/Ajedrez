@@ -28,7 +28,7 @@ public class Game {
         this.whitePlayer = whitePlayer;
         this.blackPlayer = blackPlayer;
         board = new Board();
-        deletedPieces = new DeletedPieceManagerListImp();
+        deletedPieces = board.getDeletedPieces();
         gameEnded = false;
         playerBlack = true;
     }

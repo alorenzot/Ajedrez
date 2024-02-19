@@ -24,6 +24,10 @@ public class Board {
         deletedPieces=new DeletedPieceManagerListImp();
     }
 
+    public DeletedPieceManagerListImp getDeletedPieces() {
+        return deletedPieces;
+    }
+
     public boolean contains(Coordinate c) {
         return cells.containsKey(c);
     }
@@ -53,7 +57,7 @@ public class Board {
             aux += " " + row + "\n";
         }
         aux += "\t\t    A  B  C  D  E  F  G  H\n";
-        aux+=deletedPieces.showDeletedPieces();
+        aux+=deletedPieces.showPieces();
 
         return aux;
     }

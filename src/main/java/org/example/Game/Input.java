@@ -13,15 +13,14 @@ public class Input {
         borrarPantalla();
 
         System.out.println("Enter a coordinate: \n");
-
         System.out.println(board);
-        //System.out.println(Game.deletedPieces.showDeletedPieces());
 
         Scanner sc = new Scanner(System.in);
         String coord = sc.next();
 
-        if (coord.length() != 2) {
-            System.out.println("Invalid coordinate, you must introduce a letter and a number [C-2] ");
+
+        if (coord.length() != 2 || !Character.isAlphabetic(coord.charAt(0)) || !Character.isDigit(coord.charAt(1))) {
+            System.out.println("Invalid coordinate, you must introduce a letter and a number [A-2] ");
             return askCoord(board, whiteTurn);
         }
         char letter = coord.charAt(0);
@@ -29,7 +28,10 @@ public class Input {
         Coordinate c = new Coordinate(letter, num);
 
         Cell cell = board.getCellAt(c);
-
+        if (cell.isEmpty()){
+            System.out.println("There's no piece in there!");
+            return askCoord(board,whiteTurn);
+        }
         if (whiteTurn && cell.getPiece().getColor().equals(Piece.Color.BLACK) ||
                 !whiteTurn && cell.getPiece().getColor().equals(Piece.Color.WHITE)) {
             System.out.println("You can't move that color.");
@@ -49,6 +51,7 @@ public class Input {
     public static Coordinate askMovement(Board b, Coordinate c, Set<Coordinate> nextMovements, boolean whiteTurn) {
         Piece p = b.getCellAt(c).getPiece();
         Piece aux = p;
+        Coordinate initial = p.getCell().getCoordinate();
         Set<Coordinate> movements = nextMovements;
 
         if (movements.isEmpty()) {
@@ -65,10 +68,7 @@ public class Input {
         b.getCellAt(move).setPiece(aux);
         b.removeHighLight(movements);
 
-        System.out.println(aux.getType() + " in " + aux.getCell().getCoordinate() + " moved to " + move);
-
-        System.out.println(b);
-
+        System.out.println(aux.getType() + " in " + initial + " moved to " + move + "\n");
         return null;
     }
 
