@@ -27,10 +27,14 @@ public class Input {
         int num = coord.charAt(1) - 48;
         Coordinate c = new Coordinate(letter, num);
 
+        if (!board.contains(c)) {
+            System.out.println("Invalid coordinate!");
+            return askCoord(board, whiteTurn);
+        }
         Cell cell = board.getCellAt(c);
-        if (cell.isEmpty()){
+        if (cell.isEmpty()) {
             System.out.println("There's no piece in there!");
-            return askCoord(board,whiteTurn);
+            return askCoord(board, whiteTurn);
         }
         if (whiteTurn && cell.getPiece().getColor().equals(Piece.Color.BLACK) ||
                 !whiteTurn && cell.getPiece().getColor().equals(Piece.Color.WHITE)) {

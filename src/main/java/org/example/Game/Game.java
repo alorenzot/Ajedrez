@@ -42,7 +42,7 @@ public class Game {
                 System.out.println(whitePlayer + "'s turn -> WHITE");
             } else {
                 whiteTurn = false;
-            System.out.println(blackPlayer + "'s turn -> BLACK");
+                System.out.println(blackPlayer + "'s turn -> BLACK");
             }
             System.out.println("Which piece do you want to move? \n");
 

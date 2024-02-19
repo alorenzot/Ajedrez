@@ -21,7 +21,7 @@ public class Board {
                 cells.put(c, new Cell(this, c));
             }
         }
-        deletedPieces=new DeletedPieceManagerListImp();
+        deletedPieces = new DeletedPieceManagerListImp();
     }
 
     public DeletedPieceManagerListImp getDeletedPieces() {
@@ -57,7 +57,7 @@ public class Board {
             aux += " " + row + "\n";
         }
         aux += "\t\t    A  B  C  D  E  F  G  H\n";
-        aux+=deletedPieces.showPieces();
+        aux += deletedPieces.showPieces();
 
         return aux;
     }

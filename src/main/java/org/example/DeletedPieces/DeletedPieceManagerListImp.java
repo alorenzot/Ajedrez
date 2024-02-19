@@ -21,22 +21,22 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
 
     public String showPieces() {
         String output = "\n\t\t\t\tDELETED PIECES\n";
-        output+="\t";
-        output+=colorize(" ♚ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
-        output+=colorize(" ♛ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
-        output+=colorize(" ♝ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
-        output+=colorize(" ♞ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
-        output+=colorize(" ♜ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
-        output+=colorize(" ♟ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
+        output += "\t";
+        output += colorize(" ♚ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
+        output += colorize(" ♛ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
+        output += colorize(" ♝ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
+        output += colorize(" ♞ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
+        output += colorize(" ♜ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
+        output += colorize(" ♟ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
 
-        output+=colorize(" ♚ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
-        output+=colorize(" ♛ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
-        output+=colorize(" ♝ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
-        output+=colorize(" ♞ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
-        output+=colorize(" ♜ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
-        output+=colorize(" ♟ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
+        output += colorize(" ♚ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
+        output += colorize(" ♛ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
+        output += colorize(" ♝ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
+        output += colorize(" ♞ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
+        output += colorize(" ♜ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
+        output += colorize(" ♟ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
 
-        output+="\n\t";
+        output += "\n\t";
         //Rey, reina, alfil, caballo, torre, peón
         int brey = count(Piece.Type.WHITE_KING);
         int breina = count(Piece.Type.WHITE_QUEEN);
@@ -51,49 +51,49 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
         int ncaballo = count(Piece.Type.BLACK_KNIGHT);
         int ntorre = count(Piece.Type.BLACK_ROOK);
         int npeon = count(Piece.Type.BLACK_PAWN);
-        output+=colorize(" "+(brey)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(breina)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(balfil)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(bcaballo)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(btorre)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(bpeon)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(nrey)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(nreina)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(nalfil)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(ncaballo)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(ntorre)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(npeon)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
+        output += colorize(" " + (brey) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (breina) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (balfil) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (bcaballo) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (btorre) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (bpeon) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (nrey) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (nreina) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (nalfil) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (ncaballo) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (ntorre) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (npeon) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
 
-        output+= "\n\n\t\t\t\tREMAINING PIECES\n";
-        output+="\t";
-        output+=colorize(" ♚ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
-        output+=colorize(" ♛ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
-        output+=colorize(" ♝ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
-        output+=colorize(" ♞ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
-        output+=colorize(" ♜ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
-        output+=colorize(" ♟ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(255,255,255));
+        output += "\n\n\t\t\t   REMAINING PIECES\n";
+        output += "\t";
+        output += colorize(" ♚ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
+        output += colorize(" ♛ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
+        output += colorize(" ♝ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
+        output += colorize(" ♞ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
+        output += colorize(" ♜ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
+        output += colorize(" ♟ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(255, 255, 255));
 
-        output+=colorize(" ♚ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
-        output+=colorize(" ♛ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
-        output+=colorize(" ♝ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
-        output+=colorize(" ♞ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
-        output+=colorize(" ♜ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
-        output+=colorize(" ♟ ", Attribute.BACK_COLOR(100,100,100), Attribute.TEXT_COLOR(0,0,0));
+        output += colorize(" ♚ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
+        output += colorize(" ♛ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
+        output += colorize(" ♝ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
+        output += colorize(" ♞ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
+        output += colorize(" ♜ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
+        output += colorize(" ♟ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
 
-        output+="\n\t";
+        output += "\n\t";
 
-        output+=colorize(" "+(1-brey)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(1-breina)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(2-balfil)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(2-bcaballo)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(2-btorre)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(8-bpeon)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(1-nrey)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(1-nreina)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(2-nalfil)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(2-ncaballo)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(2-ntorre)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
-        output+=colorize(" "+(8-npeon)+" ", Attribute.BACK_COLOR(180,180,180), Attribute.TEXT_COLOR(100,100,100));
+        output += colorize(" " + (1 - brey) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (1 - breina) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (2 - balfil) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (2 - bcaballo) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (2 - btorre) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (8 - bpeon) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (1 - nrey) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (1 - nreina) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (2 - nalfil) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (2 - ncaballo) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (2 - ntorre) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (8 - npeon) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         return output;
     }
 
