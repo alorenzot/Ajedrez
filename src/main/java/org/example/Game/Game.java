@@ -8,18 +8,13 @@ public class Game {
     public static DeletedPieceManagerListImp deletedPieces;
     private String whitePlayer;
     private String blackPlayer;
-    private static boolean playerBlack;
+    private static boolean playerBlackWins;
     public static boolean gameEnded;
 
     public static void endGame(Boolean blackwins) {
-        playerBlack = blackwins;
+        playerBlackWins = blackwins;
         gameEnded = true;
     }
-
-    public DeletedPieceManagerListImp getDeletedPieces() {
-        return deletedPieces;
-    }
-
     public Board getBoard() {
         return board;
     }
@@ -30,13 +25,13 @@ public class Game {
         board = new Board();
         deletedPieces = board.getDeletedPieces();
         gameEnded = false;
-        playerBlack = true;
+        playerBlackWins = true;
     }
 
     public void startGame() {
         initBoard();
         for (int i = 0; !gameEnded; i++) {
-            Boolean whiteTurn;
+            boolean whiteTurn;
             if (i % 2 == 0) {
                 whiteTurn = true;
                 System.out.println(whitePlayer + "'s turn -> WHITE");
@@ -44,11 +39,11 @@ public class Game {
                 whiteTurn = false;
                 System.out.println(blackPlayer + "'s turn -> BLACK");
             }
-            System.out.println("Which piece do you want to move? \n");
+            System.out.println("Which piece do you want to move?");
 
             Coordinate c = Input.askCoord(this.board, whiteTurn);
         }
-        if (!playerBlack) {
+        if (!playerBlackWins) {
             System.out.println("Black player wins!");
         } else System.out.println("White player wins!");
 

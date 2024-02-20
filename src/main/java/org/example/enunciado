@@ -18,9 +18,6 @@ TODO Implement save the game in a file
     All movements
 TODO Implement castling
 TODO Implement network play
-TODO ImplEment the needed unitary tests (JUnit) (those ones student considers as the needed ones)
+TODO Implement the needed unitary tests (JUnit) (those ones student considers as the needed ones)
 TODO Implement the way to change the application colors and store them in a file. You can use a Singleton pattern to do it.
 Any other additional enhancement
-
-
-- Implement castling (Si los nextmovem del rey y las de la torre
