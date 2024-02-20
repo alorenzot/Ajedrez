@@ -48,8 +48,6 @@ public class Input {
             System.out.println("Invalid coordinate.");
             return askCoord(board, whiteTurn);
         }
-
-
     }
 
     public static Coordinate askMovement(Board b, Coordinate c, Set<Coordinate> nextMovements, boolean whiteTurn) {
@@ -123,6 +121,5 @@ public class Input {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-
 }
 

@@ -1,9 +1,5 @@
 package org.example.Game;
 
-import org.example.Pieces.Knight;
-import org.example.Pieces.Piece;
-import org.example.Pieces.Rook;
-
 import java.util.Scanner;
 
 public class Main {
