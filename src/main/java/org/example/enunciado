@@ -24,3 +24,4 @@ Any other additional enhancement
  - Implemented color ui change
 
 TODO LA VAINA DE CONVERTIR EN REINA
+al mover la pieza detecte si es un peon y si esta en la 8 o 1 depende el colo añadir metodo setreina para las deleted pieces
