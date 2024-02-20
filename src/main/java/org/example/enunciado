@@ -21,3 +21,6 @@ TODO Implement network play
 TODO Implement the needed unitary tests (JUnit) (those ones student considers as the needed ones)
 TODO Implement the way to change the application colors and store them in a file. You can use a Singleton pattern to do it.
 Any other additional enhancement
+ - Implemented color ui change
+
+TODO LA VAINA DE CONVERTIR EN REINA

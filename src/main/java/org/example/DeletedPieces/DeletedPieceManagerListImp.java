@@ -37,7 +37,6 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
         output += colorize(" ♟ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
 
         output += "\n\t";
-        //Rey, reina, alfil, caballo, torre, peón
         int brey = count(Piece.Type.WHITE_KING);
         int breina = count(Piece.Type.WHITE_QUEEN);
         int balfil = count(Piece.Type.WHITE_BISHOP);
@@ -51,6 +50,7 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
         int ncaballo = count(Piece.Type.BLACK_KNIGHT);
         int ntorre = count(Piece.Type.BLACK_ROOK);
         int npeon = count(Piece.Type.BLACK_PAWN);
+
         output += colorize(" " + (brey) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (breina) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (balfil) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));

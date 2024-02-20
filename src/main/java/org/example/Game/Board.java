@@ -13,15 +13,23 @@ public class Board {
     private DeletedPieceManagerListImp deletedPieces;
 
     public Board() {
+        boolean classicUI=setColorUI();
         cells = new HashMap<>();
         Coordinate c;
         for (int row = 1; row <= 8; row++) {
             for (char col = 'A'; col <= 'H'; col++) {
                 c = new Coordinate(col, row);
-                cells.put(c, new Cell(this, c));
+                cells.put(c, new Cell(this, c, classicUI));
             }
         }
         deletedPieces = new DeletedPieceManagerListImp();
+    }
+    public boolean setColorUI(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Type 0 for classic UI, else for black&white UI");
+        String answer = sc.next();
+        if (answer.equals("0")) return true;
+        else return false;
     }
 
     public DeletedPieceManagerListImp getDeletedPieces() {

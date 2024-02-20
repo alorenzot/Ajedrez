@@ -28,7 +28,9 @@ public class Game {
         playerBlackWins = true;
     }
 
+
     public void startGame() {
+
         initBoard();
         for (int i = 0; !gameEnded; i++) {
             boolean whiteTurn;
@@ -42,6 +44,7 @@ public class Game {
             System.out.println("Which piece do you want to move?");
 
             Coordinate c = Input.askCoord(this.board, whiteTurn);
+
         }
         if (!playerBlackWins) {
             System.out.println("Black player wins!");
@@ -77,6 +80,7 @@ public class Game {
         for (char i = 0; i < 8; i++) {
             Piece pawn2 = new Pawn(board, new Coordinate(((char) ('A' + i)), 7), Pawn.Type.BLACK);
         }
+
 
     }
 

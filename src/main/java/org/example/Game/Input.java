@@ -1,7 +1,5 @@
 package org.example.Game;
 
-import org.example.DeletedPieces.DeletedPieceManagerListImp;
-import org.example.Pieces.Pawn;
 import org.example.Pieces.Piece;
 
 import java.util.*;
@@ -65,20 +63,20 @@ public class Input {
         System.out.println(b);
         Coordinate move = makeMove(movements, b);
 
-        b.getCellAt(p.getCell().getCoordinate()).setPiece(null);
-        aux.setCell(b.getCellAt(move));
-        b.getCellAt(move).setPiece(aux);
+        b.getCellAt(c).getPiece().moveTo(move);
+//        b.getCellAt(p.getCell().getCoordinate()).setPiece(null);
+//        aux.setCell(b.getCellAt(move));
+//        b.getCellAt(move).setPiece(aux);
         b.removeHighLight(movements);
 
         System.out.println(aux.getType() + " in " + initial + " moved to " + move + "\n");
-        return null;
+        return move;
     }
 
     private static Coordinate makeMove(Set<Coordinate> movements, Board board) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Possible movements: \n" + movements);
         System.out.println("Type the wished coordinate.");
-
         String coord = sc.next();
 
         if (coord.length() != 2) {
