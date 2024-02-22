@@ -61,15 +61,23 @@ public class Input {
 
         b.highLight(movements);
         System.out.println(b);
-        Coordinate move = makeMove(movements, b);
 
+        Coordinate move = makeMove(movements, b);
         b.getCellAt(c).getPiece().moveTo(move);
-//        b.getCellAt(p.getCell().getCoordinate()).setPiece(null);
-//        aux.setCell(b.getCellAt(move));
-//        b.getCellAt(move).setPiece(aux);
+
         b.removeHighLight(movements);
 
         System.out.println(aux.getType() + " in " + initial + " moved to " + move + "\n");
+        if (p.getType().equals(Piece.Type.BLACK_PAWN)
+                && move.getNumber()==1) {
+            System.out.println("Black Pawn turned into Black Queen");
+            b.getDeletedPieces().addBQueen();
+        }
+        if (p.getType().equals(Piece.Type.WHITE_PAWN)
+                && move.getNumber()==8) {
+            System.out.println("White Pawn turned into White Queen");
+            b.getDeletedPieces().addWQueen();
+        }
         return move;
     }
 

@@ -30,7 +30,7 @@ public class Game {
 
 
     public void startGame() {
-
+        int movements=0;
         initBoard();
         for (int i = 0; !gameEnded; i++) {
             boolean whiteTurn;
@@ -43,13 +43,16 @@ public class Game {
             }
             System.out.println("Which piece do you want to move?");
 
-            Coordinate c = Input.askCoord(this.board, whiteTurn);
+            Input.askCoord(this.board, whiteTurn);
 
+            movements++;
         }
         if (!playerBlackWins) {
-            System.out.println("Black player wins!");
-        } else System.out.println("White player wins!");
-
+            System.out.println("Black player - " + blackPlayer + " - wins!");
+        } else {
+            System.out.println("White player - " + whitePlayer + " - wins!");
+        }
+        System.out.println("Total made movements: " + movements);
 
     }
 

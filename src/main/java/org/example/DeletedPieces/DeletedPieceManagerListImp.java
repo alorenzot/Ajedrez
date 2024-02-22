@@ -13,9 +13,17 @@ import static com.diogonunes.jcolor.Ansi.colorize;
 public class DeletedPieceManagerListImp implements IDeletedPieceManager {
 
     MyList<Piece> pieceList;
+    private int sumBQueen;
+    private int sumWQueen;
+    private int resBPawn;
+    private int resWPawn;
 
     public DeletedPieceManagerListImp() {
         this.pieceList = new MyList<>();
+        sumBQueen=0;
+        sumWQueen=0;
+        resBPawn=0;
+        resWPawn=0;
     }
 
 
@@ -57,6 +65,7 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
         output += colorize(" " + (bcaballo) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (btorre) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (bpeon) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+
         output += colorize(" " + (nrey) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (nreina) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (nalfil) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
@@ -81,25 +90,34 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager {
         output += colorize(" ♟ ", Attribute.BACK_COLOR(100, 100, 100), Attribute.TEXT_COLOR(0, 0, 0));
 
         output += "\n\t";
-
         output += colorize(" " + (1 - brey) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
-        output += colorize(" " + (1 - breina) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (1 - breina + sumWQueen) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (2 - balfil) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (2 - bcaballo) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (2 - btorre) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
-        output += colorize(" " + (8 - bpeon) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (8 - bpeon + resWPawn) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+
         output += colorize(" " + (1 - nrey) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
-        output += colorize(" " + (1 - nreina) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (1 - nreina + sumBQueen) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (2 - nalfil) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (2 - ncaballo) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         output += colorize(" " + (2 - ntorre) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
-        output += colorize(" " + (8 - npeon) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
+        output += colorize(" " + (8 - npeon + resBPawn) + " ", Attribute.BACK_COLOR(180, 180, 180), Attribute.TEXT_COLOR(100, 100, 100));
         return output;
     }
 
     @Override
     public void addPiece(Piece piece) {
         pieceList.addHead(piece);
+    }
+
+    public void addBQueen(){
+        sumBQueen++;
+        resBPawn--;
+    }
+    public void addWQueen(){
+        sumWQueen++;
+        resWPawn--;
     }
 
     @Override
