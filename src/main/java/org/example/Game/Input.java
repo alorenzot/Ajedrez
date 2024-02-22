@@ -59,6 +59,7 @@ public class Input {
             return askCoord(b, whiteTurn);
         }
 
+        borrarPantalla();
         b.highLight(movements);
         System.out.println(b);
 
@@ -68,16 +69,15 @@ public class Input {
         b.removeHighLight(movements);
 
         System.out.println(aux.getType() + " in " + initial + " moved to " + move + "\n");
-        if (p.getType().equals(Piece.Type.BLACK_PAWN)
-                && move.getNumber()==1) {
+        if (p.getType().equals(Piece.Type.BLACK_PAWN) && move.getNumber()==1) {
             System.out.println("Black Pawn turned into Black Queen");
             b.getDeletedPieces().addBQueen();
         }
-        if (p.getType().equals(Piece.Type.WHITE_PAWN)
-                && move.getNumber()==8) {
+        if (p.getType().equals(Piece.Type.WHITE_PAWN) && move.getNumber()==8) {
             System.out.println("White Pawn turned into White Queen");
             b.getDeletedPieces().addWQueen();
         }
+
         return move;
     }
 
