@@ -3,6 +3,10 @@ package org.example.Game;
 import org.example.DeletedPieces.DeletedPieceManagerListImp;
 import org.example.Pieces.*;
 
+/**
+ * @author Alejandro Lorenzo Toledo
+ */
+
 public class Game {
     private Board board;
     public static DeletedPieceManagerListImp deletedPieces;
@@ -11,6 +15,10 @@ public class Game {
     private static boolean playerBlackWins;
     public static boolean gameEnded;
 
+    /**
+     * Finaliza el juego
+     * @param blackwins - booleano que indica si el jugador ganador es el negro
+     */
     public static void endGame(Boolean blackwins) {
         playerBlackWins = blackwins;
         gameEnded = true;
@@ -28,6 +36,9 @@ public class Game {
         playerBlackWins = true;
     }
 
+    /**
+     * Método que inicia el juego
+     */
 
     public void startGame() {
         int movements=0;
@@ -56,6 +67,9 @@ public class Game {
 
     }
 
+    /**
+     * Método que coloca las fichas en el tablero
+     */
     private void initBoard() {
 
         //Filling whites

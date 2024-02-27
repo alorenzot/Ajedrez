@@ -4,12 +4,19 @@ import org.example.Pieces.Piece;
 
 import java.util.*;
 
+/**
+ * @author Alejandro Lorenzo Toledo
+ */
+
 public class Input {
 
-
+    /**
+     * Este método pregunta al usuario por las coordenadas
+     * @param board - Recibe el tablero con el que se va a jugar
+     * @param whiteTurn - Indica si es el turno, o no, del jugador blanco para evitar que mueva fichas de otro color
+     * @return - Devuelve la coordenada introducida
+     */
     public static Coordinate askCoord(Board board, boolean whiteTurn) {
-        borrarPantalla();
-
         System.out.println("Enter a coordinate: \n");
         System.out.println(board);
 
@@ -48,27 +55,34 @@ public class Input {
         }
     }
 
+    /**
+     * Este método muestra los posibles movimientos y pregunta por cuál va a mover
+     * @param b - Tablero que se usará
+     * @param c - Coordenada de la pieza seleccionada
+     * @param nextMovements - Movimientos posibles de la pieza seleccioanda
+     * @param whiteTurn - Turno del jugador
+     * @return - Devuelve la coordenada devuelta por el metodo makeMove
+     * @see #makeMove(Set, Board)
+     */
     public static Coordinate askMovement(Board b, Coordinate c, Set<Coordinate> nextMovements, boolean whiteTurn) {
         Piece p = b.getCellAt(c).getPiece();
-        Piece aux = p;
         Coordinate initial = p.getCell().getCoordinate();
-        Set<Coordinate> movements = nextMovements;
 
-        if (movements.isEmpty()) {
+        if (nextMovements.isEmpty()) {
             System.out.println("You can't move that piece!");
             return askCoord(b, whiteTurn);
         }
 
-        borrarPantalla();
-        b.highLight(movements);
+        b.highLight(nextMovements);
         System.out.println(b);
 
-        Coordinate move = makeMove(movements, b);
+        Coordinate move = makeMove(nextMovements, b);
+
         b.getCellAt(c).getPiece().moveTo(move);
 
-        b.removeHighLight(movements);
+        b.removeHighLight(nextMovements);
 
-        System.out.println(aux.getType() + " in " + initial + " moved to " + move + "\n");
+        System.out.println(p.getType() + " in " + initial + " moved to " + move + "\n");
         if (p.getType().equals(Piece.Type.BLACK_PAWN) && move.getNumber()==1) {
             System.out.println("Black Pawn turned into Black Queen");
             b.getDeletedPieces().addBQueen();
@@ -81,6 +95,12 @@ public class Input {
         return move;
     }
 
+    /**
+     * Método que mueve la ficha
+     * @param movements - movimientos posibles
+     * @param board - Tablero de juego
+     * @return - Coordenada a la que se moverá
+     */
     private static Coordinate makeMove(Set<Coordinate> movements, Board board) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Possible movements: \n" + movements);
@@ -113,6 +133,11 @@ public class Input {
         }
     }
 
+    /**
+     * Método que mata a otra pieza
+     * @param piece - Pieza a matar
+     * @return - Coordenada de la pieza matada
+     */
     private static Coordinate kill(Piece piece) {
         Game.deletedPieces.addPiece(piece);
         if (piece.getType().equals(Piece.Type.BLACK_KING))
@@ -122,10 +147,5 @@ public class Input {
         return piece.getCell().getCoordinate();
     }
 
-    public static void borrarPantalla() {
-        //Este metodo borra la terminal
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
 }
 
